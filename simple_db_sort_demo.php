@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <style>
 	body {
 	  font: normal medium/1.4 sans-serif;
@@ -17,8 +18,8 @@
 	  background: #eee;
 	}
 </style>
-<body>
 
+<body>
 <?php
 	$serverName = "localhost";
 	$userName = "bluebear_demo1";
@@ -49,14 +50,14 @@
 			$companyRow = $companyQueryResult->fetch_assoc();
 			$users[] = array($columnTitle1 => $userRow["id"], $columnTitle2 => $userRow["first_name"]. " " . $userRow["last_name"], $columnTitle3 => $companyRow["name"]);
 		}
-	} else {
+	} 
+	else {
 		echo "0 results";
 	}
 
 	$usersSorted = array();
 
-	if (isset($_GET['sortBy']))
-	{
+	if (isset($_GET['sortBy']))	{
 		$usersSorted = sortArray($_GET['sortBy'], $users);
 	}
 	else {
@@ -73,36 +74,34 @@
 		</tr>
 	</thead>
 	<tbody>
-
-	<?php
-		foreach ($usersSorted as $user) {
-			?>
-			<tr>
-				<td><?= $user[$columnTitle1] ?></td>
-				<td><?= $user[$columnTitle2] ?></td>
-				<td><?= $user[$columnTitle3] ?></td>
-			</tr>
-			<?php
-		}
-	?>
-
+		<?php
+			foreach ($usersSorted as $user) {
+				?>
+				<tr>
+					<td><?= $user[$columnTitle1] ?></td>
+					<td><?= $user[$columnTitle2] ?></td>
+					<td><?= $user[$columnTitle3] ?></td>
+				</tr>
+				<?php
+			}
+		?>
 	</tbody>
 </table>
 
 <?php
-$connection->close();
+	$connection->close();
 
-function sortArray($sortBy, $arrayToSort) {
-	$keys = array();
+	function sortArray($sortBy, $arrayToSort) {
+		$keys = array();
 
-	foreach ($arrayToSort as $row) {
-		$keys[] = $row[$sortBy];
+		foreach ($arrayToSort as $row) {
+			$keys[] = $row[$sortBy];
+		}
+
+		array_multisort($keys, SORT_ASC, $arrayToSort);
+
+		return $arrayToSort;
 	}
-
-	array_multisort($keys, SORT_ASC, $arrayToSort);
-
-	return $arrayToSort;
-}
 ?>
 
 </body>
