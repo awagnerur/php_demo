@@ -24,6 +24,7 @@
 	$serverName = "localhost";
 	$userName = "bluebear_demo1";
 	$password = "J00mL@1982";
+	$dataBaseName = "bluebear_demo1";
 
 	$users = array();
 
@@ -31,7 +32,7 @@
 	$columnTitle2 = "Name";
 	$columnTitle3 = "Company";
 
-	$connection = new mysqli($serverName, $userName, $password, "bluebear_demo1");
+	$connection = new mysqli($serverName, $userName, $password, $dataBaseName);
 
 	if ($connection->connect_errno) {
 		die("Connection failed: " . $connection->connect_error);
