@@ -1,3 +1,8 @@
+<?php 
+
+	echo "NAVBAR";
+
+?>
 <nav id="siteNav" class="navbar navbar-default navbar-fixed-top" role="navigation">
 	<div class="container">
 		<div class="navbar-header">
@@ -36,4 +41,3 @@
 		</div>
 	</div>
 </nav>
-<?php echo "tab: " . $currentTab; ?>

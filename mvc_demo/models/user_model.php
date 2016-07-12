@@ -10,13 +10,14 @@ class UserModel {
 		if (!$settings = parse_ini_file($file, TRUE)) throw new exception("Unable to open " . $file . ".");
 
 		$host = $settings['database']['host'];
+		$port = "8889";
 		$userName = $settings['database']['userName'];
 		$password = $settings['database']['password'];
 		$schema = $settings['database']['schema'];
 
 		$users = array();
 
-		$connection = new mysqli($host, $userName, $password, $schema);
+		$connection = new mysqli($host, $userName, $password, $schema, $port);
 
 		if ($connection->connect_errno) {
 			die("Connection failed: " . $connection->connect_error);

@@ -22,18 +22,14 @@
 
 <div class="container main">
 	<div class="jumbotron">
-		<h1>User details</h1>
-		<p>Hit back to see full user list.</p> 
-	</div>
-	<div class="col-sm-push-1">
-		UserId: <?= $user[$columnTitle1] ?><br/>
-		Name: <?= $user[$columnTitle2] ?><br/>
-		Company: <?= $user[$columnTitle3] ?><br/>
-	</div>
-	<div class="col-sm-push-1">
+		<h1><?= $user[$columnTitle2] ?></h1>
+		<p>
+			<strong>UserId:</strong> <?= $user[$columnTitle1] ?><br/>
+			<strong>Company:</strong> <?= $user[$columnTitle3] ?><br/>
+		</p>
 		<?php
 			$url = htmlspecialchars($_SERVER['HTTP_REFERER']);
-			echo "<a href='$url' role='button' class='btn btn-primary'>Back to results</a>"; 
+			echo "<a href='$url' align='right' role='button' class='btn btn-primary'>Back to results</a>"; 
 		?>
 	</div>
 </div>
